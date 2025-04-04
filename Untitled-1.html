@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TeakTok Milktea Shop</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      font-family: 'Segoe UI', sans-serif;
+      height: 100%;
+      width: 100%;
+      background-color: #fffdf6;
+    }
+
+    /* COVER PAGE */
+    .hero {
+      height: 100vh;
+      width: 100vw;
+      background-image: url('cover-photo2.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 36px;
+      background-color: rgba(255, 202, 212, 0.9);
+      color: #333;
+      text-decoration: none;
+      font-size: 20px;
+      border-radius: 10px;
+      transition: 0.3s ease;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: rgba(255, 194, 209, 1);
+    }
+
+    /* MENU STYLES */
+    .container {
+      max-width: 650px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 6px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    button:nth-child(4n+1) { background-color: #ffdede; }
+    button:nth-child(4n+2) { background-color: #e0f7e7; }
+    button:nth-child(4n+3) { background-color: #f4f0ff; }
+    button:nth-child(4n)   { background-color: #fff9c4; }
+
+    button:hover {
+      filter: brightness(0.95);
+    }
+
+    input {
+      width: 60px;
+      padding: 6px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      text-align: center;
+      background-color: #f9f9f9;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #e2f0f9;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ✅ FULLSCREEN COVER PAGE -->
+<section class="hero" id="heroSection">
+  <h1>TeakTok Milktea Shop</h1>
+  <p>Happiness in every cup!</p>
+  <a href="javascript:void(0)" class="btn" onclick="startOrdering()">Order Now</a>
+</section>
+
+<!-- ✅ MENU PAGE (Initially Hidden) -->
+<div id="menuPage" class="container" style="display: none;">
+  <h1>TeakTok Milktea Shop</h1>
+
+  <div class="home">
+    <h2>Menu</h2>
+    <button onclick="showMenu('Classic Milk Tea')">Classic Milk Tea</button>
+    <button onclick="showMenu('Fruit Tea')">Fruit Tea</button>
+    <button onclick="showMenu('Iced Coffee')">Iced Coffee</button>
+    <button onclick="showMenu('Snacks')">Snacks</button>
+  </div>
+
+  <div class="menu"></div>
+  <div class="sizes"></div>
+  <div class="quantity"></div>
+
+  <div class="cart" style="display: none;">
+    <h3>Your Cart</h3>
+    <ul id="cart-list"></ul>
+    <button onclick="showCategories()">Add More</button>
+    <button onclick="checkout()">Proceed to Checkout</button>
+  </div>
+
+  <div class="payment"></div>
+  <div class="confirmation"></div>
+</div>
+
+<!-- ✅ SCRIPT -->
+<script>
+  let cart = [];
+  let currentCategory = "";
+  let selectedItem = {};
+
+  function startOrdering() {
+    document.getElementById('heroSection').style.display = 'none';
+    document.getElementById('menuPage').style.display = 'block';
+  }
+
+  function showCategories() {
+    hideAll();
+    document.querySelector('.home').style.display = 'block';
+  }
+
+  function hideAll() {
+    document.querySelectorAll('.menu, .sizes, .quantity, .cart, .payment, .confirmation')
+      .forEach(section => section.style.display = 'none');
+  }
+
+  function showMenu(category) {
+    currentCategory = category;
+    document.querySelector('.home').style.display = 'none';
+    document.querySelector('.menu').innerHTML = getMenuItems(category);
+    document.querySelector('.menu').style.display = 'block';
+  }
+
+  function getMenuItems(category) {
+    let items = {
+      "Classic Milk Tea": ["Wintermelon", "Okinawa", "Dark Chocolate", "Red Velvet Java Chips", "Matcha",
+                           "Lychee", "Strawberry Choco", "Sweet Grapes", "Very Rocky Road", "Cheesecake",
+                           "Salted Caramel", "Cookies & Cream", "Taro", "Chocolate", "Hazelnut",
+                           "Blueberry", "Avocado", "Mango Cheesecake"],
+      "Fruit Tea": ["Blueberry", "Lemon", "Lychee", "Green Apple", "Kiwi", "Passion Fruit", "Strawberry", "Mango"],
+      "Iced Coffee": ["Cafeccino", "Caffe Macchiato", "Caffe Mocha", "Caffe Milk Choco",
+                      "Caffe Matcha", "Caffe Vanilla", "Caffe Java Chips", "Caffe Hazelnut"]
+    };
+
+    if (!items[category]) return `<p>Coming Soon!</p><button onclick="showCategories()">Back</button>`;
+
+    return `<h3>Select a Flavor (${category}):</h3>` +
+           items[category].map(item => `<button onclick="selectItem('${item}')">${item}</button>`).join("") +
+           `<button onclick="showCategories()">Back</button>`;
+  }
+
+  function selectItem(flavor) {
+    selectedItem = { flavor, category: currentCategory };
+    document.querySelector('.menu').style.display = 'none';
+
+    document.querySelector('.sizes').innerHTML = `
+      <h3>Select a Size for ${flavor}:</h3>
+      <button onclick="selectSize('${flavor}', 'Petite 16oz', 28)">Petite 16oz - ₱28</button>
+      <button onclick="selectSize('${flavor}', 'Giant 22oz', 38)">Giant 22oz - ₱38</button>
+      <button onclick="showMenu(currentCategory)">Back</button>
+    `;
+    document.querySelector('.sizes').style.display = 'block';
+  }
+
+  function selectSize(flavor, size, price) {
+    selectedItem.size = size;
+    selectedItem.price = price;
+    showQuantityInput(flavor, price);
+  }
+
+  function showQuantityInput(flavor, price) {
+    document.querySelector('.sizes').style.display = 'none';
+    document.querySelector('.quantity').innerHTML = `
+      <h3>Choose Quantity for ${flavor}:</h3>
+      <input type="number" id="quantity" value="1" min="1">
+      <button onclick="addToCart(${price})">Add to Cart</button>
+      <button onclick="showMenu(currentCategory)">Back</button>
+    `;
+    document.querySelector('.quantity').style.display = 'block';
+  }
+
+  function addToCart(price) {
+    const quantity = parseInt(document.getElementById('quantity').value);
+    selectedItem.quantity = quantity;
+    selectedItem.totalPrice = quantity * price;
+    cart.push({ ...selectedItem });
+
+    document.querySelector('.quantity').style.display = 'none';
+    document.querySelector('.cart').style.display = 'block';
+    updateCart();
+  }
+
+  function updateCart() {
+    const cartList = document.getElementById('cart-list');
+    cartList.innerHTML = '';
+    cart.forEach((item, index) => {
+      cartList.innerHTML += `
+        <li>
+          ${item.quantity}x ${item.flavor} - ${item.size} - ₱${item.totalPrice}
+          <button onclick="removeFromCart(${index})">Remove</button>
+        </li>`;
+    });
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCart();
+  }
+
+  function checkout() {
+    if (cart.length === 0) {
+      alert('Your cart is empty!');
+      return;
+    }
+    const total = cart.reduce((sum, item) => sum + item.totalPrice, 0);
+    document.querySelector('.cart').style.display = 'none';
+    document.querySelector('.payment').innerHTML = `
+      <h3>Total Amount: ₱${total}</h3>
+      <h3>Select Payment Method:</h3>
+      <button onclick="confirmCOD()">Cash on Delivery</button>
+      <button onclick="payGCash(${total})">Pay with GCash</button>
+      <button onclick="showCategories()">Back</button>
+    `;
+    document.querySelector('.payment').style.display = 'block';
+  }
+
+  function confirmCOD() {
+    document.querySelector('.payment').style.display = 'none';
+    document.querySelector('.confirmation').innerHTML = `
+      <h3>Order confirmed!<br>Thank you for choosing TeakTok 💖</h3>
+      <button onclick="showCategories()">Back to Menu</button>
+    `;
+    document.querySelector('.confirmation').style.display = 'block';
+    cart = [];
+  }
+
+  function payGCash(amount) {
+    window.location.href = "https://www.gcash.com";
+    resetCart();
+  }
+
+  function resetCart() {
+    cart = [];
+    showCategories();
+  }
+</script>
+
+</body>
+</html>
