@@ -15,10 +15,9 @@
       font-family: 'Segoe UI', sans-serif;
       height: 100%;
       width: 100%;
-      background-color: #fffdf6;
+      background-color: floralwhite;
     }
 
-    /* COVER PAGE */
     .hero {
       height: 100vh;
       width: 100vw;
@@ -29,7 +28,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: #fff;
+      color: white;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
       text-align: center;
     }
@@ -47,8 +46,8 @@
       display: inline-block;
       margin-top: 30px;
       padding: 14px 36px;
-      background-color: rgba(255, 202, 212, 0.9);
-      color: #333;
+      background-color: pink;
+      color: black;
       text-decoration: none;
       font-size: 20px;
       border-radius: 10px;
@@ -57,14 +56,13 @@
     }
 
     .btn:hover {
-      background-color: rgba(255, 194, 209, 1);
+      background-color: lightpink;
     }
 
-    /* MENU STYLES */
     .container {
       max-width: 650px;
       margin: 30px auto;
-      background: #ffffff;
+      background: white;
       padding: 25px;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -83,22 +81,22 @@
       transition: all 0.2s ease;
     }
 
-    button:nth-child(4n+1) { background-color: #ffdede; }
-    button:nth-child(4n+2) { background-color: #e0f7e7; }
-    button:nth-child(4n+3) { background-color: #f4f0ff; }
-    button:nth-child(4n)   { background-color: #fff9c4; }
+    button:nth-child(4n+1) { background-color: mistyrose; }
+    button:nth-child(4n+2) { background-color: honeydew; }
+    button:nth-child(4n+3) { background-color: lavender; }
+    button:nth-child(4n)   { background-color: lightyellow; }
 
     button:hover {
       filter: brightness(0.95);
     }
 
-    input {
-      width: 60px;
-      padding: 6px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+    input, textarea {
+      width: 80%;
+      padding: 8px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid gray;
       text-align: center;
-      background-color: #f9f9f9;
     }
 
     ul {
@@ -107,7 +105,7 @@
     }
 
     li {
-      background-color: #e2f0f9;
+      background-color: lightblue;
       margin: 5px 0;
       padding: 10px;
       border-radius: 10px;
@@ -116,14 +114,23 @@
 </head>
 <body>
 
-<!-- ✅ FULLSCREEN COVER PAGE -->
+<!-- ✅ COVER PAGE -->
 <section class="hero" id="heroSection">
   <h1>TeakTok Milktea Shop</h1>
   <p>Happiness in every cup!</p>
-  <a href="javascript:void(0)" class="btn" onclick="startOrdering()">Order Now</a>
+  <a href="javascript:void(0)" class="btn" onclick="showCustomerForm()">Order Now</a>
 </section>
 
-<!-- ✅ MENU PAGE (Initially Hidden) -->
+<!-- ✅ CUSTOMER INFO -->
+<div id="customerForm" class="container" style="display: none;">
+  <h2>Customer Information</h2>
+  <input type="text" id="customerName" placeholder="Customer Name" required />
+  <textarea id="customerAddress" placeholder="Address" required></textarea>
+  <input type="tel" id="customerContact" placeholder="Contact Number" maxlength="11" oninput="validateContact()" />
+  <button onclick="startOrdering()">Proceed to Menu</button>
+</div>
+
+<!-- ✅ MENU PAGE -->
 <div id="menuPage" class="container" style="display: none;">
   <h1>TeakTok Milktea Shop</h1>
 
@@ -150,14 +157,32 @@
   <div class="confirmation"></div>
 </div>
 
-<!-- ✅ SCRIPT -->
 <script>
   let cart = [];
   let currentCategory = "";
   let selectedItem = {};
 
-  function startOrdering() {
+  function showCustomerForm() {
     document.getElementById('heroSection').style.display = 'none';
+    document.getElementById('customerForm').style.display = 'block';
+  }
+
+  function validateContact() {
+    let contactInput = document.getElementById('customerContact');
+    contactInput.value = contactInput.value.replace(/\D/g, '').slice(0, 11);
+  }
+
+  function startOrdering() {
+    const name = document.getElementById('customerName').value.trim();
+    const address = document.getElementById('customerAddress').value.trim();
+    const contact = document.getElementById('customerContact').value.trim();
+
+    if (!name || !address || contact.length !== 11) {
+      alert('Please fill out all fields correctly.');
+      return;
+    }
+
+    document.getElementById('customerForm').style.display = 'none';
     document.getElementById('menuPage').style.display = 'block';
   }
 
@@ -180,13 +205,9 @@
 
   function getMenuItems(category) {
     let items = {
-      "Classic Milk Tea": ["Wintermelon", "Okinawa", "Dark Chocolate", "Red Velvet Java Chips", "Matcha",
-                           "Lychee", "Strawberry Choco", "Sweet Grapes", "Very Rocky Road", "Cheesecake",
-                           "Salted Caramel", "Cookies & Cream", "Taro", "Chocolate", "Hazelnut",
-                           "Blueberry", "Avocado", "Mango Cheesecake"],
+      "Classic Milk Tea": ["Wintermelon", "Okinawa", "Dark Chocolate", "Red Velvet Java Chips", "Matcha", "Lychee", "Strawberry Choco", "Sweet Grapes", "Very Rocky Road", "Cheesecake", "Salted Caramel", "Cookies & Cream", "Taro", "Chocolate", "Hazelnut", "Blueberry", "Avocado", "Mango Cheesecake"],
       "Fruit Tea": ["Blueberry", "Lemon", "Lychee", "Green Apple", "Kiwi", "Passion Fruit", "Strawberry", "Mango"],
-      "Iced Coffee": ["Cafeccino", "Caffe Macchiato", "Caffe Mocha", "Caffe Milk Choco",
-                      "Caffe Matcha", "Caffe Vanilla", "Caffe Java Chips", "Caffe Hazelnut"]
+      "Iced Coffee": ["Cafeccino", "Caffe Macchiato", "Caffe Mocha", "Caffe Milk Choco", "Caffe Matcha", "Caffe Vanilla", "Caffe Java Chips", "Caffe Hazelnut"]
     };
 
     if (!items[category]) return `<p>Coming Soon!</p><button onclick="showCategories()">Back</button>`;
@@ -219,11 +240,16 @@
     document.querySelector('.sizes').style.display = 'none';
     document.querySelector('.quantity').innerHTML = `
       <h3>Choose Quantity for ${flavor}:</h3>
-      <input type="number" id="quantity" value="1" min="1">
+      <input type="number" id="quantity" value="1" min="1" max="50" oninput="limitQuantity(this)">
       <button onclick="addToCart(${price})">Add to Cart</button>
       <button onclick="showMenu(currentCategory)">Back</button>
     `;
     document.querySelector('.quantity').style.display = 'block';
+  }
+
+  function limitQuantity(input) {
+    input.value = input.value.replace(/\D/g, '');
+    if (parseInt(input.value) > 50) input.value = 50;
   }
 
   function addToCart(price) {
@@ -283,10 +309,6 @@
 
   function payGCash(amount) {
     window.location.href = "https://www.gcash.com";
-    resetCart();
-  }
-
-  function resetCart() {
     cart = [];
     showCategories();
   }
