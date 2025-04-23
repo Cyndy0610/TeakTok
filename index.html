@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TeakTok Milktea Shop</title>
   <style>
+    /* Your original styles (no changes made) */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -298,6 +299,25 @@
   }
 
   function confirmCOD() {
+    const customerData = {
+      name: document.getElementById('customerName').value,
+      address: document.getElementById('customerAddress').value,
+      contact: document.getElementById('customerContact').value,
+      cart: cart,
+      payment: 'Cash on Delivery',
+      timestamp: new Date().toLocaleString(),
+      status: 'Pending'
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbyYMRXrnOzsYplGdDRTJdSQms60rh4dGA375Zv9kyCNBILMFha2zJ13pwMpA9pjtnV6DA/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(customerData)
+    });
+
     document.querySelector('.payment').style.display = 'none';
     document.querySelector('.confirmation').innerHTML = `
       <h3>Order confirmed!<br>Thank you for choosing TeakTok 💖</h3>
@@ -309,8 +329,7 @@
 
   function payGCash(amount) {
     window.location.href = "https://www.gcash.com";
-    cart = [];
-    showCategories();
+    confirmCOD(); // Also send to Google Sheets
   }
 </script>
 
