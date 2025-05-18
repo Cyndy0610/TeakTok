@@ -11,136 +11,292 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-<style>:where([class^="ri-"])::before{content:"\f3c2"}body{font-family:'Poppins',sans-serif;background-color:#fff8f8}.auth-container{background-image:url('https://readdy.ai/api/search-image?query=Aesthetic%20arrangement%20of%20colorful%20bubble%20tea%20drinks%20with%20pastel%20pink%20background%2C%20various%20flavors%20of%20milk%20tea%20with%20boba%20pearls%2C%20clean%20modern%20minimalist%20style%2C%20soft%20lighting%2C%20high%20quality%20product%20photography&width=1200&height=800&seq=1&orientation=landscape');background-size:cover;background-position:center}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.custom-checkbox{position:relative;display:flex;align-items:center;cursor:pointer}.custom-checkbox input{position:absolute;opacity:0;cursor:pointer}.checkmark{height:20px;width:20px;background-color:#fff;border:2px solid #ddd;border-radius:4px;display:flex;align-items:center;justify-content:center}.custom-checkbox input:checked ~ .checkmark{background-color:#ff9fb0;border-color:#ff9fb0}.checkmark:after{content:"";display:none}.custom-checkbox input:checked ~ .checkmark:after{display:block;width:5px;height:10px;border:solid white;border-width:0 2px 2px 0;transform:rotate(45deg)}.switch{position:relative;display:inline-block;width:48px;height:24px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#ccc;transition:.4s;border-radius:24px}.slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background-color:white;transition:.4s;border-radius:50%}input:checked + .slider{background-color:#ff9fb0}input:checked + .slider:before{transform:translateX(24px)}</style>
+<style>
+    :where([class^="ri-"])::before{content:"\f3c2"}
+    body{font-family:'Poppins',sans-serif;background-color:#fff8f8}
+    .auth-container{background-image:url('https://readdy.ai/api/search-image?query=Aesthetic%20arrangement%20of%20colorful%20bubble%20tea%20drinks%20with%20pastel%20pink%20background%2C%20various%20flavors%20of%20milk%20tea%20with%20boba%20pearls%2C%20clean%20modern%20minimalist%20style%2C%20soft%20lighting%2C%20high%20quality%20product%20photography&width=1200&height=800&seq=1&orientation=landscape');background-size:cover;background-position:center}
+    input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+    .custom-checkbox{position:relative;display:flex;align-items:center;cursor:pointer}
+    .custom-checkbox input{position:absolute;opacity:0;cursor:pointer}
+    .checkmark{height:20px;width:20px;background-color:#fff;border:2px solid #ddd;border-radius:4px;display:flex;align-items:center;justify-content:center}
+    .custom-checkbox input:checked ~ .checkmark{background-color:#ff9fb0;border-color:#ff9fb0}
+    .checkmark:after{content:"";display:none}
+    .custom-checkbox input:checked ~ .checkmark:after{display:block;width:5px;height:10px;border:solid white;border-width:0 2px 2px 0;transform:rotate(45deg)}
+    .switch{position:relative;display:inline-block;width:48px;height:24px}
+    .switch input{opacity:0;width:0;height:0}
+    .slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#ccc;transition:.4s;border-radius:24px}
+    .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background-color:white;transition:.4s;border-radius:50%}
+    input:checked + .slider{background-color:#ff9fb0}
+    input:checked + .slider:before{transform:translateX(24px)}
+    .role-card {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .role-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+</style>
 </head>
 <body>
 <div class="min-h-screen flex flex-col">
-<div id="auth-section" class="auth-container min-h-screen flex items-center justify-center p-4">
-<div class="bg-white rounded-xl shadow-lg w-full max-w-md p-8 relative overflow-hidden">
-<div class="text-center mb-8"><h1 class="font-['Pacifico'] text-3xl text-primary mb-2">TeakTok</h1><p class="text-gray-600">Milktea Shop</p></div>
-<div class="flex mb-6"><button id="login-tab" class="flex-1 py-2 text-center font-medium border-b-2 border-primary text-primary">Login</button><button id="signup-tab" class="flex-1 py-2 text-center font-medium border-b-2 border-gray-200 text-gray-400">Sign Up</button></div>
-<form id="login-form" class="space-y-4">
-<div><label class="block text-sm font-medium text-gray-700 mb-1">Email or Username</label><input type="text" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your email or username"></div>
-<div><label class="block text-sm font-medium text-gray-700 mb-1">Password</label><input type="password" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your password"></div>
-<div class="flex items-center justify-between"><label class="custom-checkbox"><input type="checkbox"><span class="checkmark mr-2"></span><span class="text-sm text-gray-600">Remember me</span></label><a href="#" class="text-sm text-primary hover:underline">Forgot password?</a></div>
-<button type="button" id="login-btn" class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Login</button>
-</form>
-<form id="signup-form" class="space-y-4 hidden">
-<div><label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label><input type="text" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your full name"></div>
-<div><label class="block text-sm font-medium text-gray-700 mb-1">Email</label><input type="email" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your email"></div>
-<div><label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label><input type="text" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your phone number"></div>
-<div><label class="block text-sm font-medium text-gray-700 mb-1">Delivery Address</label><textarea class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" rows="2" placeholder="Enter your complete delivery address"></textarea></div>
-<div><label class="block text-sm font-medium text-gray-700 mb-1">Password</label><input type="password" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Create a password"></div>
-<div><label class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label><input type="password" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Confirm your password"></div>
-<div class="flex items-center"><label class="custom-checkbox"><input type="checkbox"><span class="checkmark mr-2"></span><span class="text-sm text-gray-600">I agree to the <a href="#" class="text-primary">Terms of Service</a> and <a href="#" class="text-primary">Privacy Policy</a></span></label></div>
-<button type="button" class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Create Account</button>
-</form>
-<div class="mt-6"><div class="relative flex items-center justify-center"><div class="border-t border-gray-200 flex-grow"></div><span class="mx-4 text-sm text-gray-500">or continue with</span><div class="border-t border-gray-200 flex-grow"></div></div>
-<div class="grid grid-cols-3 gap-3 mt-4">
-<button class="flex items-center justify-center py-2 px-4 border border-gray-200 rounded-button hover:bg-gray-50 whitespace-nowrap"><div class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-google-fill text-red-500"></i></div><span class="text-sm">Google</span></button>
-<button class="flex items-center justify-center py-2 px-4 border border-gray-200 rounded-button hover:bg-gray-50 whitespace-nowrap"><div class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-facebook-fill text-blue-600"></i></div><span class="text-sm">Facebook</span></button>
-<button class="flex items-center justify-center py-2 px-4 border border-gray-200 rounded-button hover:bg-gray-50 whitespace-nowrap"><div class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-apple-fill"></i></div><span class="text-sm">Apple</span></button>
-</div></div></div></div>
-<div id="app-section" class="hidden flex-grow flex flex-col min-h-screen">
-<header class="bg-white shadow-sm py-4 px-6 flex items-center justify-between sticky top-0 z-10">
-<div class="flex items-center"><h1 class="font-['Pacifico'] text-2xl text-primary">TeakTok</h1></div>
-<div class="flex items-center space-x-4"><button class="relative"><div class="w-10 h-10 flex items-center justify-center"><i class="ri-shopping-cart-2-line text-gray-700 ri-xl"></i></div><span id="cart-count" class="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span></button><button class="w-10 h-10 flex items-center justify-center"><i class="ri-user-line text-gray-700 ri-xl"></i></button></div>
-</header>
-<div class="bg-white shadow-sm px-6 py-3 overflow-x-auto"><div class="flex space-x-6 min-w-max">
-<button class="category-tab flex flex-col items-center py-2 px-4 text-primary border-b-2 border-primary"><div class="w-6 h-6 flex items-center justify-center mb-1"><i class="ri-cup-line"></i></div><span class="text-sm font-medium">Classic Milk Tea</span></button>
-<button class="category-tab flex flex-col items-center py-2 px-4 text-gray-500 border-b-2 border-transparent"><div class="w-6 h-6 flex items-center justify-center mb-1"><i class="ri-fruit-line"></i></div><span class="text-sm font-medium">Fruit Tea</span></button>
-<button class="category-tab flex flex-col items-center py-2 px-4 text-gray-500 border-b-2 border-transparent" data-category="coffee"><div class="w-6 h-6 flex items-center justify-center mb-1"><i class="ri-coffee-line"></i></div><span class="text-sm font-medium">Iced Coffee</span></button>
-<button class="category-tab flex flex-col items-center py-2 px-4 text-gray-500 border-b-2 border-transparent" data-category="snacks"><div class="w-6 h-6 flex items-center justify-center mb-1"><i class="ri-restaurant-line"></i></div><span class="text-sm font-medium">Snacks</span></button>
-</div></div>
-<main class="flex-grow p-6 bg-white"><div class="max-w-6xl mx-auto">
-<div class="mb-6"><h2 class="text-2xl font-semibold text-gray-800">Classic Milk Tea</h2><p class="text-gray-600">Select your favorite milk tea flavors</p></div>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Delicious%20Wintermelon%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20creamy%20light%20brown%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=2&orientation=portrait" alt="Wintermelon Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Wintermelon</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱29 - ₱39</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
-<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Okinawa%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20rich%20brown%20color%20with%20caramel%20notes%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=3&orientation=portrait" alt="Okinawa Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Okinawa</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱29 - ₱39</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
-<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Dark%20Chocolate%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20rich%20dark%20brown%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=4&orientation=portrait" alt="Dark Chocolate Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Dark Chocolate</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱29 - ₱39</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
-<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Red%20Velvet%20Java%20Chips%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20vibrant%20red%20color%20with%20chocolate%20chips%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=5&orientation=portrait" alt="Red Velvet Java Chips Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Red Velvet Java Chips</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱29 - ₱39</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
-<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Matcha%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20vibrant%20green%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=6&orientation=portrait" alt="Matcha Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Matcha</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱29 - ₱39</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
-<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Lychee%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20light%20pinkish%20white%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=7&orientation=portrait" alt="Lychee Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Lychee</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱29 - ₱39</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
-<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Strawberry%20Choco%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20light%20pink%20color%20with%20chocolate%20swirls%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=8&orientation=portrait" alt="Strawberry Choco Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Strawberry Choco</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱29 - ₱39</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
-<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Sweet%20Grapes%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20light%20purple%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=9&orientation=portrait" alt="Sweet Grapes Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Sweet Grapes</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱29 - ₱39</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
-</div></div></main>
-<div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-<div class="bg-white rounded-xl shadow-lg w-full max-w-md max-h-[90vh] overflow-y-auto"><div class="p-6">
-<div class="flex items-center justify-between mb-6"><h2 class="text-xl font-semibold text-gray-800">Your Cart</h2><button id="close-cart" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700"><i class="ri-close-line ri-lg"></i></button></div>
-<div id="cart-items" class="space-y-4 mb-6"><div id="empty-cart" class="py-8 text-center"><div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-gray-300"><i class="ri-shopping-cart-line ri-3x"></i></div><p class="text-gray-500">Your cart is empty</p></div></div>
-<div class="border-t border-gray-200 pt-4 mb-6"><div class="flex justify-between mb-2"><span class="text-gray-600">Subtotal</span><span id="subtotal" class="font-medium">$0.00</span></div><div class="flex justify-between mb-2"><span class="text-gray-600">Delivery Fee</span><span id="delivery-fee" class="font-medium">₱0</span></div><div class="flex justify-between font-semibold text-lg mt-4"><span>Total</span><span id="total" class="text-primary">$0.00</span></div></div>
-<div class="space-y-4"><h3 class="font-medium text-gray-800">Payment Method</h3><div class="space-y-3">
-<label class="flex items-center p-3 border border-gray-200 rounded cursor-pointer hover:border-primary"><input type="radio" name="payment" value="cod" class="mr-3 accent-primary" checked><div class="w-6 h-6 flex items-center justify-center mr-3 text-gray-500"><i class="ri-money-dollar-box-line"></i></div><span>Cash on Delivery</span></label>
-<label class="flex items-center p-3 border border-gray-200 rounded cursor-pointer hover:border-primary"><input type="radio" name="payment" value="gcash" class="mr-3 accent-primary"><div class="w-6 h-6 flex items-center justify-center mr-3 text-blue-500"><i class="ri-bank-card-line"></i></div><span>Pay with GCash</span></label>
-</div></div>
-<button id="checkout-btn" class="w-full bg-primary text-white py-3 px-4 rounded-button font-medium mt-6 hover:bg-opacity-90 transition-all whitespace-nowrap">Proceed to Checkout</button>
-</div></div></div>
-<div id="customize-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-<div class="bg-white rounded-xl shadow-lg w-full max-w-md max-h-[90vh] overflow-y-auto"><div class="p-6">
-<div class="flex items-center justify-between mb-6"><h2 class="text-xl font-semibold text-gray-800">Customize Your Drink</h2><button id="close-customize" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700"><i class="ri-close-line ri-lg"></i></button></div>
-<div class="space-y-6">
-<div><h3 class="font-medium text-gray-800 mb-3">Size</h3><div class="grid grid-cols-2 gap-3"><button class="size-option py-2 px-4 border border-gray-200 rounded-button text-center hover:border-primary hover:text-primary whitespace-nowrap">Petite (16oz) - ₱29</button><button class="size-option py-2 px-4 border border-primary bg-primary bg-opacity-5 rounded-button text-center text-primary whitespace-nowrap">Giant (22oz) - ₱39</button></div></div>
-<div><h3 class="font-medium text-gray-800 mb-3">Sugar Level</h3><div class="space-y-2"><div class="flex items-center justify-between"><span class="text-sm text-gray-600">0%</span><span class="text-sm text-gray-600">100%</span></div><input type="range" min="0" max="100" value="50" step="25" class="w-full h-2 bg-gray-200 rounded-full appearance-none cursor-pointer"><div class="flex justify-between text-xs text-gray-500"><span>No Sugar</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div></div></div>
-<div><h3 class="font-medium text-gray-800 mb-3">Ice Level</h3><div class="space-y-2"><div class="flex items-center justify-between"><span class="text-sm text-gray-600">0%</span><span class="text-sm text-gray-600">100%</span></div><input type="range" min="0" max="100" value="75" step="25" class="w-full h-2 bg-gray-200 rounded-full appearance-none cursor-pointer"><div class="flex justify-between text-xs text-gray-500"><span>No Ice</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div></div></div>
-<div><h3 class="font-medium text-gray-800 mb-3">Toppings</h3><div class="space-y-2">
-<label class="flex items-center justify-between p-3 border border-gray-200 rounded"><div class="flex items-center"><input type="checkbox" class="mr-3 accent-primary"><span>Black Pearls</span></div><span class="text-primary">+₱10</span></label>
-<label class="flex items-center justify-between p-3 border border-gray-200 rounded"><div class="flex items-center"><input type="checkbox" class="mr-3 accent-primary"><span>Pudding</span></div><span class="text-primary">+₱10</span></label>
-<label class="flex items-center justify-between p-3 border border-gray-200 rounded"><div class="flex items-center"><input type="checkbox" class="mr-3 accent-primary"><span>Grass Jelly</span></div><span class="text-primary">+₱10</span></label>
-<label class="flex items-center justify-between p-3 border border-gray-200 rounded"><div class="flex items-center"><input type="checkbox" class="mr-3 accent-primary"><span>Nata</span></div><span class="text-primary">+₱10</span></label>
-</div></div></div>
-<div class="mt-6 flex items-center justify-between"><div><div class="flex items-center"><button id="decrease-quantity" class="w-8 h-8 flex items-center justify-center border border-gray-200 rounded-l-button"><i class="ri-subtract-line"></i></button><input type="number" id="quantity" value="1" min="1" class="w-12 h-8 border-t border-b border-gray-200 text-center focus: outline-none"><button id="increase-quantity" class="w-8 h-8 flex items-center justify-center border border-gray-200 rounded-r-button"><i class="ri-add-line"></i></button></div></div><button id="add-to-cart-custom" class="bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart - ₱39</button></div>
-</div></div></div>
-</div></div>
+
+    <!-- Role Selection Screen (NEW) -->
+    <div id="role-selection-section" class="auth-container min-h-screen flex flex-col items-center justify-center p-4">
+        <div class="bg-white bg-opacity-80 backdrop-blur-sm p-8 md:p-12 rounded-xl shadow-2xl w-full max-w-3xl text-center">
+            <div class="mb-10">
+                <h1 class="font-['Pacifico'] text-5xl md:text-6xl text-primary mb-3">TeakTok</h1>
+                <p class="text-2xl md:text-3xl text-gray-700 font-light">Milktea Shop</p>
+                <p class="text-xl md:text-2xl text-gray-600 mt-8">Proceed by selecting your designated role</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div id="select-admin-role" class="role-card bg-white p-6 md:p-8 rounded-xl shadow-lg text-center cursor-pointer border-2 border-transparent hover:border-primary">
+                    <img src="https://cdn-icons-png.flaticon.com/512/9050/9050078.png" alt="Admin Icon" class="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4">
+                    <h2 class="text-xl md:text-2xl font-semibold text-gray-800 mb-1">Admin</h2>
+                    <p class="text-sm text-gray-500">Kindly click here</p>
+                </div>
+                <div id="select-customer-role" class="role-card bg-white p-6 md:p-8 rounded-xl shadow-lg text-center cursor-pointer border-2 border-transparent hover:border-primary">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3048/3048010.png" alt="Customer Icon" class="w-20 h-20 md:w-24 md:h-24 mx-auto mb-4">
+                    <h2 class="text-xl md:text-2xl font-semibold text-gray-800 mb-1">Customer</h2>
+                    <p class="text-sm text-gray-500">Kindly click here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="auth-section" class="auth-container min-h-screen flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-8 relative overflow-hidden">
+            <div class="text-center mb-8"><h1 class="font-['Pacifico'] text-3xl text-primary mb-2">TeakTok</h1><p class="text-gray-600">Milktea Shop</p></div>
+            <button id="auth-back-to-role-btn" class="absolute top-4 left-4 text-sm text-primary hover:underline z-10">
+                <i class="ri-arrow-left-s-line align-middle"></i> Back to Roles
+            </button>
+            <div class="flex mb-6"><button id="login-tab" class="flex-1 py-2 text-center font-medium border-b-2 border-primary text-primary">Login</button><button id="signup-tab" class="flex-1 py-2 text-center font-medium border-b-2 border-gray-200 text-gray-400">Sign Up</button></div>
+            <form id="login-form" class="space-y-4">
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Email or Username</label><input type="text" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your email or username"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Password</label><input type="password" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your password"></div>
+                <div class="flex items-center justify-between"><label class="custom-checkbox"><input type="checkbox"><span class="checkmark mr-2"></span><span class="text-sm text-gray-600">Remember me</span></label><a href="#" class="text-sm text-primary hover:underline">Forgot password?</a></div>
+                <button type="button" id="login-btn" class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Login</button>
+            </form>
+            <form id="signup-form" class="space-y-4 hidden">
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label><input type="text" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your full name"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Email</label><input type="email" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your email"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label><input type="text" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your phone number"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Delivery Address</label><textarea class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" rows="2" placeholder="Enter your complete delivery address"></textarea></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Password</label><input type="password" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Create a password"></div>
+                <div><label class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label><input type="password" class="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Confirm your password"></div>
+                <div class="flex items-center"><label class="custom-checkbox"><input type="checkbox"><span class="checkmark mr-2"></span><span class="text-sm text-gray-600">I agree to the <a href="#" class="text-primary">Terms of Service</a> and <a href="#" class="text-primary">Privacy Policy</a></span></label></div>
+                <button type="button" class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Create Account</button>
+            </form>
+            <div class="mt-6"><div class="relative flex items-center justify-center"><div class="border-t border-gray-200 flex-grow"></div><span class="mx-4 text-sm text-gray-500">or continue with</span><div class="border-t border-gray-200 flex-grow"></div></div>
+            <div class="grid grid-cols-3 gap-3 mt-4">
+            <button id="google-signin-btn" class="flex items-center justify-center py-2 px-4 border border-gray-200 rounded-button hover:bg-gray-50 whitespace-nowrap"><div class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-google-fill text-red-500"></i></div><span class="text-sm">Google</span></button>
+            <button id="facebook-signin-btn" class="flex items-center justify-center py-2 px-4 border border-gray-200 rounded-button hover:bg-gray-50 whitespace-nowrap"><div class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-facebook-fill text-blue-600"></i></div><span class="text-sm">Facebook</span></button>
+            <button id="apple-signin-btn" class="flex items-center justify-center py-2 px-4 border border-gray-200 rounded-button hover:bg-gray-50 whitespace-nowrap"><div class="w-5 h-5 flex items-center justify-center mr-2"><i class="ri-apple-fill"></i></div><span class="text-sm">Apple</span></button>
+            </div></div>
+        </div>
+    </div>
+
+    <div id="app-section" class="hidden flex-grow flex flex-col min-h-screen">
+        <header class="bg-white shadow-sm py-4 px-6 flex items-center justify-between sticky top-0 z-10">
+            <div class="flex items-center"><h1 class="font-['Pacifico'] text-2xl text-primary">TeakTok</h1></div>
+            <div class="flex items-center space-x-4">
+                <button id="back-to-role-selection-btn" class="text-sm text-primary hover:underline">Change Role</button>
+                <button class="relative"><div class="w-10 h-10 flex items-center justify-center"><i class="ri-shopping-cart-2-line text-gray-700 ri-xl"></i></div><span id="cart-count" class="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span></button>
+                <button class="w-10 h-10 flex items-center justify-center"><i class="ri-user-line text-gray-700 ri-xl"></i></button>
+            </div>
+        </header>
+        <div class="bg-white shadow-sm px-6 py-3 overflow-x-auto"><div class="flex space-x-6 min-w-max">
+        <button class="category-tab flex flex-col items-center py-2 px-4 text-primary border-b-2 border-primary"><div class="w-6 h-6 flex items-center justify-center mb-1"><i class="ri-cup-line"></i></div><span class="text-sm font-medium">Classic Milk Tea</span></button>
+        <button class="category-tab flex flex-col items-center py-2 px-4 text-gray-500 border-b-2 border-transparent"><div class="w-6 h-6 flex items-center justify-center mb-1"><i class="ri-fruit-line"></i></div><span class="text-sm font-medium">Fruit Tea</span></button>
+        <button class="category-tab flex flex-col items-center py-2 px-4 text-gray-500 border-b-2 border-transparent" data-category="coffee"><div class="w-6 h-6 flex items-center justify-center mb-1"><i class="ri-coffee-line"></i></div><span class="text-sm font-medium">Iced Coffee</span></button>
+        <button class="category-tab flex flex-col items-center py-2 px-4 text-gray-500 border-b-2 border-transparent" data-category="snacks"><div class="w-6 h-6 flex items-center justify-center mb-1"><i class="ri-restaurant-line"></i></div><span class="text-sm font-medium">Snacks</span></button>
+        </div></div>
+        <main class="flex-grow p-6 bg-white"><div class="max-w-6xl mx-auto">
+        <div class="mb-6"><h2 class="text-2xl font-semibold text-gray-800">Classic Milk Tea</h2><p class="text-gray-600">Select your favorite milk tea flavors</p></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Delicious%20Wintermelon%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20creamy%20light%20brown%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=2&orientation=portrait" alt="Wintermelon Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Wintermelon</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱28 - ₱38</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Okinawa%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20rich%20brown%20color%20with%20caramel%20notes%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=3&orientation=portrait" alt="Okinawa Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Okinawa</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱28 - ₱38</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Dark%20Chocolate%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20rich%20dark%20brown%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=4&orientation=portrait" alt="Dark Chocolate Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Dark Chocolate</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱28 - ₱38</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Red%20Velvet%20Java%20Chips%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20vibrant%20red%20color%20with%20chocolate%20chips%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=5&orientation=portrait" alt="Red Velvet Java Chips Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Red Velvet Java Chips</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱28 - ₱38</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Matcha%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20vibrant%20green%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=6&orientation=portrait" alt="Matcha Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Matcha</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱28 - ₱38</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Lychee%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20light%20pinkish%20white%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=7&orientation=portrait" alt="Lychee Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Lychee</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱28 - ₱38</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Strawberry%20Choco%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20light%20pink%20color%20with%20chocolate%20swirls%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=8&orientation=portrait" alt="Strawberry Choco Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Strawberry Choco</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱28 - ₱38</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="https://readdy.ai/api/search-image?query=Sweet%20Grapes%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20light%20purple%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=9&orientation=portrait" alt="Sweet Grapes Milk Tea" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">Sweet Grapes</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">₱28 - ₱38</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>
+        </div></div></main>
+        <!-- Cart Modal -->
+        <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-lg w-full max-w-md max-h-[90vh] overflow-y-auto"><div class="p-6">
+        <div class="flex items-center justify-between mb-6"><h2 class="text-xl font-semibold text-gray-800">Your Cart</h2><button id="close-cart" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700"><i class="ri-close-line ri-lg"></i></button></div>
+        <div id="cart-items" class="space-y-4 mb-6"><div id="empty-cart" class="py-8 text-center"><div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-gray-300"><i class="ri-shopping-cart-line ri-3x"></i></div><p class="text-gray-500">Your cart is empty</p></div></div>
+        <div class="border-t border-gray-200 pt-4 mb-6"><div class="flex justify-between mb-2"><span class="text-gray-600">Subtotal</span><span id="subtotal" class="font-medium">₱0.00</span></div><div class="flex justify-between mb-2"><span class="text-gray-600">Delivery Fee</span><span id="delivery-fee" class="font-medium">₱0</span></div><div class="flex justify-between font-semibold text-lg mt-4"><span>Total</span><span id="total" class="text-primary">₱0.00</span></div></div>
+        <div class="space-y-4"><h3 class="font-medium text-gray-800">Payment Method</h3><div class="space-y-3">
+        <label class="flex items-center p-3 border border-gray-200 rounded cursor-pointer hover:border-primary"><input type="radio" name="payment" value="cod" class="mr-3 accent-primary" checked><div class="w-6 h-6 flex items-center justify-center mr-3 text-gray-500"><i class="ri-money-dollar-box-line"></i></div><span>Cash on Delivery</span></label>
+        <label class="flex items-center p-3 border border-gray-200 rounded cursor-pointer hover:border-primary"><input type="radio" name="payment" value="gcash" class="mr-3 accent-primary"><div class="w-6 h-6 flex items-center justify-center mr-3 text-blue-500"><i class="ri-bank-card-line"></i></div><span>Pay with GCash</span></label>
+        </div></div>
+        <button id="checkout-btn" class="w-full bg-primary text-white py-3 px-4 rounded-button font-medium mt-6 hover:bg-opacity-90 transition-all whitespace-nowrap">Proceed to Checkout</button>
+        </div></div></div>
+        <!-- Customize Modal -->
+        <div id="customize-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-lg w-full max-w-md max-h-[90vh] overflow-y-auto"><div class="p-6">
+        <div class="flex items-center justify-between mb-6"><h2 class="text-xl font-semibold text-gray-800">Customize Your Drink</h2><button id="close-customize" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-700"><i class="ri-close-line ri-lg"></i></button></div>
+        <div class="space-y-6">
+        <div><h3 class="font-medium text-gray-800 mb-3">Size</h3><div class="grid grid-cols-2 gap-3"><button class="size-option py-2 px-4 border border-gray-200 rounded-button text-center hover:border-primary hover:text-primary whitespace-nowrap">Petite (16oz) - ₱28</button><button class="size-option py-2 px-4 border border-primary bg-primary bg-opacity-5 rounded-button text-center text-primary whitespace-nowrap">Giant (22oz) - ₱38</button></div></div>
+        <div><h3 class="font-medium text-gray-800 mb-3">Sugar Level</h3><div class="space-y-2"><div class="flex items-center justify-between"><span class="text-sm text-gray-600">0%</span><span class="text-sm text-gray-600">100%</span></div><input type="range" min="0" max="100" value="50" step="25" class="w-full h-2 bg-gray-200 rounded-full appearance-none cursor-pointer"><div class="flex justify-between text-xs text-gray-500"><span>No Sugar</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div></div></div>
+        <div><h3 class="font-medium text-gray-800 mb-3">Ice Level</h3><div class="space-y-2"><div class="flex items-center justify-between"><span class="text-sm text-gray-600">0%</span><span class="text-sm text-gray-600">100%</span></div><input type="range" min="0" max="100" value="75" step="25" class="w-full h-2 bg-gray-200 rounded-full appearance-none cursor-pointer"><div class="flex justify-between text-xs text-gray-500"><span>No Ice</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div></div></div>
+        <div><h3 class="font-medium text-gray-800 mb-3">Toppings</h3><div class="space-y-2">
+        <label class="flex items-center justify-between p-3 border border-gray-200 rounded"><div class="flex items-center"><input type="checkbox" class="mr-3 accent-primary"><span>Black Pearls</span></div><span class="text-primary">+₱10</span></label>
+        <label class="flex items-center justify-between p-3 border border-gray-200 rounded"><div class="flex items-center"><input type="checkbox" class="mr-3 accent-primary"><span>Pudding</span></div><span class="text-primary">+₱10</span></label>
+        <label class="flex items-center justify-between p-3 border border-gray-200 rounded"><div class="flex items-center"><input type="checkbox" class="mr-3 accent-primary"><span>Grass Jelly</span></div><span class="text-primary">+₱10</span></label>
+        <label class="flex items-center justify-between p-3 border border-gray-200 rounded"><div class="flex items-center"><input type="checkbox" class="mr-3 accent-primary"><span>Nata</span></div><span class="text-primary">+₱10</span></label>
+        </div></div></div>
+        <div class="mt-6 flex items-center justify-between"><div><div class="flex items-center"><button id="decrease-quantity" class="w-8 h-8 flex items-center justify-center border border-gray-200 rounded-l-button"><i class="ri-subtract-line"></i></button><input type="number" id="quantity" value="1" min="1" class="w-12 h-8 border-t border-b border-gray-200 text-center focus: outline-none"><button id="increase-quantity" class="w-8 h-8 flex items-center justify-center border border-gray-200 rounded-r-button"><i class="ri-add-line"></i></button></div></div><button id="add-to-cart-custom" class="bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart - ₱38</button></div>
+        </div></div></div>
+    </div> 
+
+    <!-- Admin Login Section -->
+    <div id="admin-login-section" class="auth-container min-h-screen flex items-center justify-center p-4 fixed inset-0 z-[100] hidden">
+        <div class="bg-white bg-opacity-90 backdrop-blur-sm p-8 rounded-xl shadow-lg w-full max-w-sm relative">
+             <button id="admin-back-to-role-btn" class="absolute top-4 left-4 text-sm text-primary hover:underline z-10">
+                <i class="ri-arrow-left-s-line align-middle"></i> Back to Roles
+            </button>
+            <h2 class="text-2xl font-semibold text-center text-primary mb-6 mt-8">Admin Login</h2>
+            <input type="password" id="admin-password-input" class="w-full px-4 py-2 border border-gray-300 rounded mb-4" placeholder="Enter Admin Password">
+            <button id="admin-login-btn" class="w-full bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-opacity-90">Login</button>
+            <p id="admin-login-error" class="text-red-500 text-sm mt-2 text-center"></p>
+        </div>
+    </div>
+
+    <!-- Admin Panel Section -->
+    <div id="admin-panel-section" class="hidden min-h-screen flex-grow flex-col bg-gray-50 p-6 z-[90]">
+        <header class="bg-white shadow-sm py-4 px-6 flex items-center justify-between sticky top-0 z-10 mb-6">
+            <h1 class="font-['Pacifico'] text-2xl text-primary">TeakTok - Admin Panel</h1>
+            <div>
+                <button id="refresh-orders-btn" class="bg-secondary text-white py-2 px-4 rounded-button font-medium hover:bg-opacity-90 mr-2">Refresh Orders</button>
+                <button id="admin-logout-btn" class="bg-red-500 text-white py-2 px-4 rounded-button font-medium hover:bg-opacity-80">Logout</button>
+            </div>
+        </header>
+        <main>
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Order History</h2>
+            <div class="bg-white shadow rounded-lg overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order No.</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Server Timestamp</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Address</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order Details</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Payment</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Client Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-orders-table-body" class="bg-white divide-y divide-gray-200">
+                        <tr><td colspan="11" class="text-center py-4">Loading orders...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+</div>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const gebi = id => document.getElementById(id);
     const qs = s => document.querySelector(s);
     const qsa = s => document.querySelectorAll(s);
 
-    function showToast(message, isSuccess = false) {
-        const toast = document.createElement('div');
-        toast.className = `fixed bottom-4 right-4 ${isSuccess ? 'bg-green-500' : 'bg-red-500'} text-white px-4 py-2 rounded shadow-lg z-50`;
-        toast.textContent = message;
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 2000);
+    // This constant now holds your actual deployed Google Apps Script URL.
+    const GOOGLE_SHEET_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx8CXwHMopHoiwTLY80tSiUSsPRoOrel-gOIcy5H2r_AnovY54btowBULPbTtrTBrUi1g/exec';
+    
+    // This constant stores the original placeholder text for the safety check.
+    const ORIGINAL_PLACEHOLDER_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE'; 
+
+    let registeredUserEmail = null;
+
+    // Section Elements
+    const roleSelectionSection = gebi('role-selection-section');
+    const authSection = gebi('auth-section');
+    const appSection = gebi('app-section');
+    const adminLoginSection = gebi('admin-login-section');
+    const adminPanelSection = gebi('admin-panel-section');
+
+    // Role Selection Buttons
+    const selectAdminRoleBtn = gebi('select-admin-role');
+    const selectCustomerRoleBtn = gebi('select-customer-role');
+    const adminBackToRoleBtn = gebi('admin-back-to-role-btn');
+    const authBackToRoleBtn = gebi('auth-back-to-role-btn'); 
+    const backToRoleSelectionBtnApp = gebi('back-to-role-selection-btn');
+
+
+    function showSection(sectionToShow) {
+        [roleSelectionSection, authSection, appSection, adminLoginSection, adminPanelSection].forEach(section => {
+            if (section) section.classList.add('hidden');
+        });
+        if (sectionToShow) sectionToShow.classList.remove('hidden');
     }
 
-    function createProductCardHtml(name, imageUrl, priceRange = "₱29 - ₱39") {
+    selectAdminRoleBtn.addEventListener('click', () => {
+        window.location.hash = '#admin-login';
+        showSection(adminLoginSection);
+    });
+
+    selectCustomerRoleBtn.addEventListener('click', () => {
+        window.location.hash = '#customer-auth';
+        showSection(authSection);
+        loginTab.click(); 
+    });
+    
+    if(adminBackToRoleBtn) {
+        adminBackToRoleBtn.addEventListener('click', () => {
+            window.location.hash = '';
+            showSection(roleSelectionSection);
+        });
+    }
+    if(authBackToRoleBtn) { 
+        authBackToRoleBtn.addEventListener('click', () => {
+            window.location.hash = '';
+            showSection(roleSelectionSection);
+        });
+    }
+
+    if(backToRoleSelectionBtnApp) {
+        backToRoleSelectionBtnApp.addEventListener('click', () => {
+            window.location.hash = '';
+            showSection(roleSelectionSection);
+            registeredUserEmail = null; 
+            cart = [];
+            updateCartUI();
+            if(loginForm) loginForm.reset();
+            if(signupForm) signupForm.reset();
+        });
+    }
+
+
+    function showToast(message, isSuccess = false) {
+        const toast = document.createElement('div');
+        toast.className = `fixed bottom-4 right-4 ${isSuccess ? 'bg-green-500' : 'bg-red-500'} text-white px-4 py-2 rounded shadow-lg z-[200]`;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+    }
+
+    function createProductCardHtml(name, imageUrl, priceRange = "₱28 - ₱38") {
         return `<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-48 overflow-hidden"><img src="${imageUrl}" alt="${name}" class="w-full h-full object-cover object-top"></div><div class="p-4"><h3 class="text-lg font-medium text-gray-800">${name}</h3><div class="flex items-center justify-between mt-2"><span class="text-primary font-semibold">${priceRange}</span><button class="add-to-cart bg-primary text-white py-1 px-3 rounded-button text-sm hover:bg-opacity-90 transition-all whitespace-nowrap">Add to Cart</button></div></div></div>`;
     }
 
     const productsData = {
-        classic: [
-            { name: "Wintermelon", img: "https://readdy.ai/api/search-image?query=Delicious%20Wintermelon%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20creamy%20light%20brown%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=2&orientation=portrait" },
-            { name: "Okinawa", img: "https://readdy.ai/api/search-image?query=Okinawa%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20rich%20brown%20color%20with%20caramel%20notes%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=3&orientation=portrait" },
-            { name: "Dark Chocolate", img: "https://readdy.ai/api/search-image?query=Dark%20Chocolate%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20rich%20dark%20brown%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=4&orientation=portrait" },
-            { name: "Red Velvet Java Chips", img: "https://readdy.ai/api/search-image?query=Red%20Velvet%20Java%20Chips%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20vibrant%20red%20color%20with%20chocolate%20chips%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=5&orientation=portrait" },
-            { name: "Matcha", img: "https://readdy.ai/api/search-image?query=Matcha%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20vibrant%20green%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=6&orientation=portrait" },
-            { name: "Lychee", img: "https://readdy.ai/api/search-image?query=Lychee%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20light%20pinkish%20white%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=7&orientation=portrait" },
-            { name: "Strawberry Choco", img: "https://readdy.ai/api/search-image?query=Strawberry%20Choco%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20light%20pink%20color%20with%20chocolate%20swirls%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=8&orientation=portrait" },
-            { name: "Sweet Grapes", img: "https://readdy.ai/api/search-image?query=Sweet%20Grapes%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20light%20purple%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=9&orientation=portrait" }
-        ],
-        fruit: [
-            { name: "Strawberry", img: "https://readdy.ai/api/search-image?query=Fresh%20strawberry%20fruit%20tea%20in%20clear%20glass%2C%20vibrant%20red%20color%20with%20real%20strawberry%20pieces%2C%20ice%20cubes%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=20&orientation=portrait" },
-            { name: "Green Apple", img: "https://readdy.ai/api/search-image?query=Green%20apple%20fruit%20tea%20in%20clear%20glass%2C%20light%20green%20color%20with%20apple%20slices%2C%20ice%20cubes%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=21&orientation=portrait" },
-            { name: "Passion Fruit", img: "https://readdy.ai/api/search-image?query=Passion%20fruit%20tea%20in%20clear%20glass%2C%20golden%20yellow%20color%20with%20passion%20fruit%20seeds%2C%20ice%20cubes%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=22&orientation=portrait" },
-            { name: "Lemon", img: "https://readdy.ai/api/search-image?query=Lemon%20fruit%20tea%20in%20clear%20glass%2C%20bright%20yellow%20color%20with%20lemon%20slices%2C%20ice%20cubes%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=23&orientation=portrait" }
-        ],
-        coffee: [
-            { name: "Cafeccino", img: "https://readdy.ai/api/search-image?query=Iced%20Cafeccino%20coffee%20in%20a%20clear%20glass%2C%20rich%20brown%20color%20with%20creamy%20foam%20top%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=10&orientation=portrait" },
-            { name: "Caffe Macchiato", img: "https://readdy.ai/api/search-image?query=Iced%20Caffe%20Macchiato%20in%20a%20clear%20glass%2C%20layered%20espresso%20and%20milk%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=11&orientation=portrait" },
-            { name: "Caffe Mocha", img: "https://readdy.ai/api/search-image?query=Iced%20Caffe%20Mocha%20in%20a%20clear%20glass%2C%20chocolate%20and%20coffee%20blend%20with%20whipped%20cream%20top%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=12&orientation=portrait" },
-            { name: "Caffe Milk Choco", img: "https://readdy.ai/api/search-image?query=Iced%20Milk%20Chocolate%20Coffee%20in%20a%20clear%20glass%2C%20creamy%20chocolate%20coffee%20blend%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=13&orientation=portrait" },
-            { name: "Caffe Matcha", img: "https://readdy.ai/api/search-image?query=Iced%20Matcha%20Latte%20with%20coffee%20in%20a%20clear%20glass%2C%20green%20matcha%20and%20coffee%20blend%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=14&orientation=portrait" },
-            { name: "Caffe Vanilla", img: "https://readdy.ai/api/search-image?query=Iced%20Vanilla%20Coffee%20in%20a%20clear%20glass%2C%20vanilla%20flavored%20coffee%20with%20cream%20top%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=15&orientation=portrait" },
-            { name: "Caffe Java Chips", img: "https://readdy.ai/api/search-image?query=Iced%20Java%20Chip%20Coffee%20in%20a%20clear%20glass%2C%20coffee%20blend%20with%20chocolate%20chips%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=16&orientation=portrait" },
-            { name: "Caffe Hazelnut", img: "https://readdy.ai/api/search-image?query=Iced%20Hazelnut%20Coffee%20in%20a%20clear%20glass%2C%20hazelnut%20flavored%20coffee%20with%20cream%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=17&orientation=portrait" }
-        ]
+        classic: [ { name: "Wintermelon", img: "https://readdy.ai/api/search-image?query=Delicious%20Wintermelon%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20creamy%20light%20brown%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=2&orientation=portrait" }, { name: "Okinawa", img: "https://readdy.ai/api/search-image?query=Okinawa%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20rich%20brown%20color%20with%20caramel%20notes%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=3&orientation=portrait" }, { name: "Dark Chocolate", img: "https://readdy.ai/api/search-image?query=Dark%20Chocolate%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20rich%20dark%20brown%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=4&orientation=portrait" }, { name: "Red Velvet Java Chips", img: "https://readdy.ai/api/search-image?query=Red%20Velvet%20Java%20Chips%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20vibrant%20red%20color%20with%20chocolate%20chips%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=5&orientation=portrait" }, { name: "Matcha", img: "https://readdy.ai/api/search-image?query=Matcha%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20vibrant%20green%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=6&orientation=portrait" }, { name: "Lychee", img: "https://readdy.ai/api/search-image?query=Lychee%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20light%20pinkish%20white%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=7&orientation=portrait" }, { name: "Strawberry Choco", img: "https://readdy.ai/api/search-image?query=Strawberry%20Choco%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20light%20pink%20color%20with%20chocolate%20swirls%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=8&orientation=portrait" }, { name: "Sweet Grapes", img: "https://readdy.ai/api/search-image?query=Sweet%20Grapes%20milk%20tea%20with%20black%20pearls%20in%20a%20clear%20cup%2C%20light%20purple%20color%2C%20boba%20pearls%20at%20bottom%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=9&orientation=portrait" } ],
+        fruit: [ { name: "Strawberry", img: "https://readdy.ai/api/search-image?query=Fresh%20strawberry%20fruit%20tea%20in%20clear%20glass%2C%20vibrant%20red%20color%20with%20real%20strawberry%20pieces%2C%20ice%20cubes%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=20&orientation=portrait" }, { name: "Green Apple", img: "https://readdy.ai/api/search-image?query=Green%20apple%20fruit%20tea%20in%20clear%20glass%2C%20light%20green%20color%20with%20apple%20slices%2C%20ice%20cubes%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=21&orientation=portrait" }, { name: "Passion Fruit", img: "https://readdy.ai/api/search-image?query=Passion%20fruit%20tea%20in%20clear%20glass%2C%20golden%20yellow%20color%20with%20passion%20fruit%20seeds%2C%20ice%20cubes%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=22&orientation=portrait" }, { name: "Lemon", img: "https://readdy.ai/api/search-image?query=Lemon%20fruit%20tea%20in%20clear%20glass%2C%20bright%20yellow%20color%20with%20lemon%20slices%2C%20ice%20cubes%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=23&orientation=portrait" } ],
+        coffee: [ { name: "Cafeccino", img: "https://readdy.ai/api/search-image?query=Iced%20Cafeccino%20coffee%20in%20a%20clear%20glass%2C%20rich%20brown%20color%20with%20creamy%20foam%20top%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=10&orientation=portrait" }, { name: "Caffe Macchiato", img: "https://readdy.ai/api/search-image?query=Iced%20Caffe%20Macchiato%20in%20a%20clear%20glass%2C%20layered%20espresso%20and%20milk%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=11&orientation=portrait" }, { name: "Caffe Mocha", img: "https://readdy.ai/api/search-image?query=Iced%20Caffe%20Mocha%20in%20a%20clear%20glass%2C%20chocolate%20and%20coffee%20blend%20with%20whipped%20cream%20top%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=12&orientation=portrait" }, { name: "Caffe Milk Choco", img: "https://readdy.ai/api/search-image?query=Iced%20Milk%20Chocolate%20Coffee%20in%20a%20clear%20glass%2C%20creamy%20chocolate%20coffee%20blend%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=13&orientation=portrait" }, { name: "Caffe Matcha", img: "https://readdy.ai/api/search-image?query=Iced%20Matcha%20Latte%20with%20coffee%20in%20a%20clear%20glass%2C%20green%20matcha%20and%20coffee%20blend%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=14&orientation=portrait" }, { name: "Caffe Vanilla", img: "https://readdy.ai/api/search-image?query=Iced%20Vanilla%20Coffee%20in%20a%20clear%20glass%2C%20vanilla%20flavored%20coffee%20with%20cream%20top%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=15&orientation=portrait" }, { name: "Caffe Java Chips", img: "https://readdy.ai/api/search-image?query=Iced%20Java%20Chip%20Coffee%20in%20a%20clear%20glass%2C%20coffee%20blend%20with%20chocolate%20chips%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=16&orientation=portrait" }, { name: "Caffe Hazelnut", img: "https://readdy.ai/api/search-image?query=Iced%20Hazelnut%20Coffee%20in%20a%20clear%20glass%2C%20hazelnut%20flavored%20coffee%20with%20cream%2C%20artistic%20coffee%20presentation%2C%20soft%20pastel%20background%2C%20minimalist%20product%20photography%2C%20high%20quality&width=400&height=300&seq=17&orientation=portrait" } ]
     };
+
 
     const loginTab = gebi('login-tab'), signupTab = gebi('signup-tab');
     const loginForm = gebi('login-form'), signupForm = gebi('signup-form');
-    const authSection = gebi('auth-section'), appSection = gebi('app-section');
+    
     const cartCountEl = gebi('cart-count'), cartModal = gebi('cart-modal'), closeCartBtn = gebi('close-cart');
     const emptyCartMsg = gebi('empty-cart'), cartItemsContainer = gebi('cart-items');
     const subtotalEl = gebi('subtotal'), totalEl = gebi('total');
@@ -148,7 +304,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const addToCartCustomBtn = gebi('add-to-cart-custom'), quantityInput = gebi('quantity');
     const mainContent = qs('main .max-w-6xl');
 
-    loginTab.addEventListener('click', () => {
+    const adminPasswordInput = gebi('admin-password-input');
+    const adminLoginBtn = gebi('admin-login-btn');
+    const adminLoginError = gebi('admin-login-error');
+    const adminOrdersTableBody = gebi('admin-orders-table-body');
+    const adminLogoutBtn = gebi('admin-logout-btn');
+    const refreshOrdersBtn = gebi('refresh-orders-btn');
+    const ADMIN_PASSWORD = "dictadmin333";
+
+    function handleRouteChange() {
+        const hash = window.location.hash;
+        if (hash === "#admin" || hash === "#admin-login") { 
+            showSection(adminLoginSection);
+        } else if (hash === "#customer-auth") {
+            showSection(authSection);
+        } else if (hash === "#admin-panel") { 
+            if (sessionStorage.getItem('isAdminLoggedIn') === 'true') {
+                showSection(adminPanelSection);
+                fetchAndDisplayAdminOrders();
+            } else {
+                showSection(adminLoginSection); 
+            }
+        } else if (hash === "#app") {
+            if(registeredUserEmail) { 
+                 showSection(appSection);
+            } else {
+                 showSection(authSection); 
+            }
+        }
+        else { 
+            showSection(roleSelectionSection);
+        }
+    }
+    
+    window.addEventListener('hashchange', handleRouteChange);
+    if (!window.location.hash || window.location.hash === "#") {
+        showSection(roleSelectionSection);
+    } else {
+        handleRouteChange();
+    }
+
+
+    loginTab.addEventListener('click', () => {  
         loginTab.classList.add('border-primary', 'text-primary');
         loginTab.classList.remove('border-gray-200', 'text-gray-400');
         signupTab.classList.remove('border-primary', 'text-primary');
@@ -169,23 +366,79 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!qs('#login-form input[type="text"]').value || !qs('#login-form input[type="password"]').value) {
             showToast('Please fill in all fields'); return;
         }
-        showToast('Please sign up first to continue');
+        const loginEmail = qs('#login-form input[type="text"]').value;
+        
+        registeredUserEmail = loginEmail; 
+        showToast('Login successful (demo)!', true);
+        window.location.hash = '#app'; 
+        showSection(appSection);
     });
 
     qs('#signup-form button').addEventListener('click', () => {
-        let isValid = true;
-        qsa('#signup-form input:not([type="checkbox"])').forEach(input => { if (!input.value) isValid = false; });
-        if (!isValid || !qs('#signup-form input[type="checkbox"]').checked) {
-            showToast('Please fill in all fields and accept the terms'); return;
+        const fullNameInput = qs('#signup-form input[placeholder="Enter your full name"]');
+        const emailInput = qs('#signup-form input[type="email"]');
+        const phoneInput = qs('#signup-form input[placeholder="Enter your phone number"]');
+        const addressInput = qs('#signup-form textarea[placeholder="Enter your complete delivery address"]');
+        const passwordInput = qs('#signup-form input[placeholder="Create a password"]');
+        const confirmPasswordInput = qs('#signup-form input[placeholder="Confirm your password"]');
+        const termsCheckbox = qs('#signup-form input[type="checkbox"]');
+
+        if (!fullNameInput.value.trim()) { showToast('Please enter your full name.'); return; }
+        if (!emailInput.value.trim()) { showToast('Please enter your email.'); return; }
+        if (!phoneInput.value.trim()) { showToast('Please enter your phone number.'); return; }
+        if (!addressInput.value.trim()) { showToast('Please enter your delivery address.'); return; }
+        if (!passwordInput.value) { showToast('Please create a password.'); return; }
+        if (!confirmPasswordInput.value) { showToast('Please confirm your password.'); return; }
+        
+        const phoneNumber = phoneInput.value.trim();
+        if (!/^\d+$/.test(phoneNumber)) { 
+            showToast('Contact number must contain only digits.'); return;
         }
-        authSection.classList.add('hidden');
-        appSection.classList.remove('hidden');
+        const email = emailInput.value.trim();
+        if (!email.endsWith('@gmail.com')) {
+            showToast('Email must be a valid @gmail.com address.'); return;
+        }
+        if (passwordInput.value !== confirmPasswordInput.value) {
+            showToast('Passwords do not match.'); return;
+        }
+        if (!termsCheckbox.checked) { 
+            showToast('Please agree to the Terms of Service and Privacy Policy.'); return; 
+        }
+
+        registeredUserEmail = email; 
+
+        const userData = {
+            formType: "signup",
+            timestamp: new Date().toISOString(),
+            fullName: fullNameInput.value.trim(),
+            email: registeredUserEmail,
+            phone: phoneInput.value.trim(),
+            address: addressInput.value.trim()
+        };
+        sendToGoogleSheet(userData, GOOGLE_SHEET_SCRIPT_URL);
+
+        window.location.hash = '#app';
+        showSection(appSection);
         showToast('Successfully registered! Welcome to TeakTok!', true);
     });
+
+    gebi('google-signin-btn').addEventListener('click', (e) => { e.preventDefault(); window.location.href = 'https://www.google.com'; });
+    gebi('facebook-signin-btn').addEventListener('click', (e) => { e.preventDefault(); window.location.href = 'https://www.facebook.com'; });
+    gebi('apple-signin-btn').addEventListener('click', (e) => { e.preventDefault(); window.location.href = 'https://www.apple.com'; });
     
     function attachAddToCartListeners() {
         qsa('.add-to-cart').forEach(button => {
-            button.addEventListener('click', () => customizeModal.classList.remove('hidden'));
+            button.addEventListener('click', (event) => {
+                const card = event.target.closest('.p-4');
+                if (card) {
+                    const productName = card.querySelector('h3').textContent;
+                    qs('#customize-modal .text-xl.font-semibold').textContent = productName; 
+                } else {
+                     qs('#customize-modal .text-xl.font-semibold').textContent = "Customize Your Drink";
+                }
+                resetCustomizeModal(); 
+                customizeModal.classList.remove('hidden');
+            });
         });
     }
     attachAddToCartListeners();
@@ -200,31 +453,20 @@ document.addEventListener('DOMContentLoaded', () => {
             this.classList.add('text-primary', 'border-primary');
             
             const categoryKey = ['classic', 'fruit', 'coffee', 'snacks'][index];
-            let newHtml = '';
+            const categoryTitles = { classic: "Classic Milk Tea", fruit: "Fruit Tea", coffee: "Iced Coffee", snacks: "Snacks" };
+            const categoryDescriptions = { classic: "Select your favorite milk tea flavors", fruit: "Refreshing fruit tea selections", coffee: "Premium coffee selections", snacks: "Perfect companions for your drinks" };
 
-            if (categoryKey === 'classic') {
-                newHtml = `
-                    <div class="mb-6"><h2 class="text-2xl font-semibold text-gray-800">Classic Milk Tea</h2><p class="text-gray-600">Select your favorite milk tea flavors</p></div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        ${productsData.classic.map(p => createProductCardHtml(p.name, p.img)).join('')}
-                    </div>`;
-            } else if (categoryKey === 'fruit' || categoryKey === 'coffee') {
-                const title = categoryKey === 'fruit' ? 'Fruit Tea' : 'Iced Coffee';
-                const description = categoryKey === 'fruit' ? 'Refreshing fruit tea selections' : 'Premium coffee selections';
-                newHtml = `
-                    <div class="mb-6"><h2 class="text-2xl font-semibold text-gray-800">${title}</h2><p class="text-gray-600">${description}</p></div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        ${productsData[categoryKey].map(p => createProductCardHtml(p.name, p.img)).join('')}
-                    </div>`;
-            } else if (categoryKey === 'snacks') {
-                newHtml = `
-                    <div class="mb-6"><h2 class="text-2xl font-semibold text-gray-800">Snacks</h2><p class="text-gray-600">Perfect companions for your drinks</p></div>
-                    <div class="flex items-center justify-center h-[400px]"><div class="text-center"><div class="w-24 h-24 mx-auto mb-4 flex items-center justify-center text-gray-300"><i class="ri-timer-line ri-3x"></i></div><h3 class="text-xl font-medium text-gray-800 mb-2">Coming Soon</h3><p class="text-gray-600">We're cooking up something special for you!</p></div></div>`;
-            }
+            qs('main .max-w-6xl > div:first-child h2').textContent = categoryTitles[categoryKey];
+            qs('main .max-w-6xl > div:first-child p').textContent = categoryDescriptions[categoryKey];
+            const productGrid = qs('main .max-w-6xl .grid');
 
-            if (newHtml) {
-                mainContent.innerHTML = newHtml;
+            if (categoryKey === 'snacks') {
+                 productGrid.innerHTML = `<div class="col-span-full flex items-center justify-center h-[300px]"><div class="text-center"><div class="w-24 h-24 mx-auto mb-4 flex items-center justify-center text-gray-300"><i class="ri-timer-line ri-3x"></i></div><h3 class="text-xl font-medium text-gray-800 mb-2">Coming Soon</h3><p class="text-gray-600">We're cooking up something special for you!</p></div></div>`;
+            } else if (productsData[categoryKey]) {
+                productGrid.innerHTML = productsData[categoryKey].map(p => createProductCardHtml(p.name, p.img)).join('');
                 attachAddToCartListeners();
+            } else {
+                 productGrid.innerHTML = `<div class="col-span-full flex items-center justify-center h-[300px]"><p class="text-gray-500">No products in this category yet.</p></div>`;
             }
         });
     });
@@ -232,32 +474,34 @@ document.addEventListener('DOMContentLoaded', () => {
     let cart = [];
     let selectedSize = 'giant';
     let selectedToppings = [];
-    let currentItemBasePrice = 39;
 
     function updateCustomPriceDisplay() {
-        currentItemBasePrice = selectedSize === 'petite' ? 29 : 39;
+        const currentItemBasePrice = selectedSize === 'petite' ? 28 : 38;
         const toppingsPrice = selectedToppings.length * 10;
         const totalItemPrice = (currentItemBasePrice + toppingsPrice) * parseInt(quantityInput.value);
         addToCartCustomBtn.textContent = `Add to Cart - ₱${totalItemPrice}`;
     }
-
-    qs('.ri-shopping-cart-2-line').parentElement.addEventListener('click', () => cartModal.classList.remove('hidden'));
-    closeCartBtn.addEventListener('click', () => cartModal.classList.add('hidden'));
-    closeCustomizeBtn.addEventListener('click', () => {
-        customizeModal.classList.add('hidden');
+    
+    function resetCustomizeModal() {
         selectedToppings = [];
         qsa('#customize-modal input[type="checkbox"]').forEach(cb => cb.checked = false);
         qsa('.size-option').forEach(opt => {
-          opt.classList.remove('border-primary', 'bg-primary', 'bg-opacity-5', 'text-primary');
-          opt.classList.add('border-gray-200');
-          if (opt.textContent.toLowerCase().includes('giant')) {
-            opt.classList.add('border-primary', 'bg-primary', 'bg-opacity-5', 'text-primary');
-          }
+            opt.classList.remove('border-primary', 'bg-primary', 'bg-opacity-5', 'text-primary');
+            opt.classList.add('border-gray-200');
+            if (opt.textContent.toLowerCase().includes('giant')) {
+                opt.classList.add('border-primary', 'bg-primary', 'bg-opacity-5', 'text-primary');
+            }
         });
         selectedSize = 'giant';
         quantityInput.value = 1;
+        qs('#customize-modal input[type="range"][min="0"][max="100"][step="25"]').value = 50; 
+        qsa('#customize-modal input[type="range"][min="0"][max="100"][step="25"]')[1].value = 75;
         updateCustomPriceDisplay();
-    });
+    }
+
+    qs('.ri-shopping-cart-2-line').parentElement.addEventListener('click', () => cartModal.classList.remove('hidden'));
+    closeCartBtn.addEventListener('click', () => cartModal.classList.add('hidden'));
+    closeCustomizeBtn.addEventListener('click', () => { customizeModal.classList.add('hidden'); });
     
     gebi('decrease-quantity').addEventListener('click', () => {
         let val = parseInt(quantityInput.value);
@@ -271,20 +515,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addToCartCustomBtn.addEventListener('click', () => {
         const quantity = parseInt(quantityInput.value);
-        const productName = qs('#customize-modal .text-xl.font-semibold').textContent;
-        const basePrice = selectedSize === 'petite' ? 29 : 39;
+        const productNameElement = qs('#customize-modal .text-xl.font-semibold');
+        const productName = productNameElement ? productNameElement.textContent : "Selected Drink"; 
+        const basePrice = selectedSize === 'petite' ? 28 : 38;
         const toppingsCost = selectedToppings.length * 10;
         const itemPrice = basePrice + toppingsCost;
+        const sugarLevel = qsa('#customize-modal input[type="range"]')[0].value + '%';
+        const iceLevel = qsa('#customize-modal input[type="range"]')[1].value + '%';
         
-        cart.push({ name: productName, price: itemPrice, quantity: quantity, total: itemPrice * quantity, size: selectedSize, toppings: [...selectedToppings] });
+        cart.push({ name: productName, price: itemPrice, quantity: quantity, total: itemPrice * quantity, size: selectedSize, toppings: [...selectedToppings], sugar: sugarLevel, ice: iceLevel });
         cartCountEl.textContent = cart.length;
         customizeModal.classList.add('hidden');
-        showToast('Added to cart!', true);
+        showToast(`${productName} added to cart!`, true);
         updateCartUI();
-        selectedToppings = [];
-        qsa('#customize-modal input[type="checkbox"]').forEach(cb => cb.checked = false);
-        quantityInput.value = 1;
-        updateCustomPriceDisplay();
     });
 
     qsa('.size-option').forEach(option => {
@@ -299,19 +542,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateCustomPriceDisplay();
         });
     });
-
-    qsa('.size-option').forEach(opt => {
-      if (opt.textContent.toLowerCase().includes('giant')) {
-        selectedSize = 'giant';
-        opt.classList.remove('border-gray-200');
-        opt.classList.add('border-primary', 'bg-primary', 'bg-opacity-5', 'text-primary');
-      } else {
-        opt.classList.remove('border-primary', 'bg-primary', 'bg-opacity-5', 'text-primary');
-        opt.classList.add('border-gray-200');
-      }
-    });
-    updateCustomPriceDisplay();
-
+    
     qsa('#customize-modal input[type="checkbox"]').forEach(checkbox => {
         checkbox.addEventListener('change', function() {
             const toppingName = this.parentElement.querySelector('span').textContent;
@@ -324,34 +555,100 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    gebi('checkout-btn').addEventListener('click', () => {
+    gebi('checkout-btn').addEventListener('click', async () => { 
+        if (cart.length === 0) { showToast('Your cart is empty. Add some items first!'); return; }
         const paymentMethod = qs('input[name="payment"]:checked').value;
-        if (paymentMethod === 'gcash') {
-            window.location.href = 'https://gcash.com';
-        } else {
+        const orderData = {
+            formType: "order",
+            timestamp: new Date().toISOString(),
+            items: cart.map(item => ({ name: item.name, size: item.size, quantity: item.quantity, pricePerItem: item.price, totalItemPrice: item.total, toppings: item.toppings.join(', ') || 'None', sugar: item.sugar, ice: item.ice })),
+            subtotal: subtotalEl.textContent,
+            deliveryFee: gebi('delivery-fee').textContent,
+            grandTotal: totalEl.textContent,
+            paymentMethod: paymentMethod,
+            userEmail: registeredUserEmail || "N/A"
+        };
+
+        const submissionResult = await sendToGoogleSheet(orderData, GOOGLE_SHEET_SCRIPT_URL);
+        let confirmedOrderNumber = "N/A";
+
+        if (submissionResult && submissionResult.status === "success" && submissionResult.orderNumber) {
+            confirmedOrderNumber = submissionResult.orderNumber;
+        } else if (submissionResult && submissionResult.status === "error") {
+            showToast("Order submission failed: " + (submissionResult.message || "Unknown error from server"));
+            return; 
+        } else if (!submissionResult) { 
+             showToast("Order submission failed: Could not connect to order server.");
+            return;
+        }
+
+
+        const handleOrderPlaced = (method) => {
             cartModal.classList.add('hidden');
             const confirmationToast = document.createElement('div');
-            confirmationToast.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-xl shadow-lg z-50 max-w-sm w-full text-center';
-            confirmationToast.innerHTML = `<div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-green-500 bg-green-100 rounded-full"><i class="ri-check-line ri-2x"></i></div><h3 class="text-xl font-semibold mb-2">Order Placed!</h3><p class="text-gray-600 mb-4">Your order has been successfully placed and will be delivered soon.</p><button class="bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Track Order</button>`;
+            confirmationToast.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-xl shadow-lg z-[200] max-w-sm w-full text-center';
+            confirmationToast.innerHTML = `
+                <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-green-500 bg-green-100 rounded-full"><i class="ri-check-line ri-2x"></i></div>
+                <h3 class="text-xl font-semibold mb-2">Order Placed (${method})!</h3>
+                <p class="text-gray-700 font-medium mb-1">Your Order No.: ${confirmedOrderNumber}</p>
+                <p class="text-gray-600 mb-4">Your order has been successfully placed and will be delivered soon.</p>
+                <button class="order-again-btn bg-primary text-white py-2 px-4 rounded-button font-medium hover:bg-opacity-90 transition-all whitespace-nowrap">Order Again</button>`;
             document.body.appendChild(confirmationToast);
-            cart = [];
+            
+            const orderAgainBtn = confirmationToast.querySelector('.order-again-btn');
+            let toastTimeoutId = setTimeout(() => { if (document.body.contains(confirmationToast)) confirmationToast.remove(); }, 7000);
+            orderAgainBtn.addEventListener('click', () => {
+                clearTimeout(toastTimeoutId);
+                if (document.body.contains(confirmationToast)) confirmationToast.remove();
+                resetAppToAuth();
+            });
+            cart = []; 
             cartCountEl.textContent = '0';
             updateCartUI();
-            setTimeout(() => confirmationToast.remove(), 5000);
+        };
+
+        if (submissionResult && submissionResult.status !== "error") {
+            if (paymentMethod === 'gcash') {
+                showToast('Processing GCash payment... (simulation)');
+                setTimeout(() => handleOrderPlaced('GCash'), 2000);
+            } else { 
+                handleOrderPlaced('Cash on Delivery');
+            }
         }
     });
+
+    function resetAppToAuth() { 
+        window.location.hash = ''; 
+        showSection(roleSelectionSection);
+        registeredUserEmail = null;
+        cart = [];
+        updateCartUI();
+        if(loginForm) loginForm.reset();
+        if(signupForm) { 
+            signupForm.reset(); 
+            const termsCheckbox = qs('#signup-form input[type="checkbox"]'); 
+            if(termsCheckbox) termsCheckbox.checked = false; 
+        }
+        const loginRememberMe = qs('#login-form input[type="checkbox"]'); 
+        if(loginRememberMe) loginRememberMe.checked = false;
+        
+        cartModal.classList.add('hidden');
+        sessionStorage.removeItem('isAdminLoggedIn'); 
+    }
 
     function updateCartUI() {
         if (cart.length === 0) {
             emptyCartMsg.classList.remove('hidden');
-            cartItemsContainer.innerHTML = '';
+            cartItemsContainer.innerHTML = ''; 
             cartItemsContainer.appendChild(emptyCartMsg);
             subtotalEl.textContent = '₱0.00';
             totalEl.textContent = '₱0.00';
+            gebi('delivery-fee').textContent = '₱0';
             return;
         }
+        
         emptyCartMsg.classList.add('hidden');
-        cartItemsContainer.innerHTML = '';
+        cartItemsContainer.innerHTML = ''; 
         let subtotalValue = 0;
         cart.forEach((item, index) => {
             subtotalValue += item.total;
@@ -361,9 +658,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="flex items-center">
                     <div class="w-12 h-12 bg-gray-100 rounded flex items-center justify-center mr-3"><i class="ri-cup-line text-primary"></i></div>
                     <div><h4 class="font-medium">${item.name}</h4>
-                        <div class="flex items-center text-sm text-gray-500">
-                        <span>Qty: ${item.quantity}</span><span class="mx-2">•</span><span>${item.size}</span>
-                        ${item.toppings.length ? `<span class="mx-2">•</span><span>${item.toppings.join(', ')}</span>` : ''}
+                        <div class="flex items-center text-sm text-gray-500 flex-wrap">
+                        <span>Qty: ${item.quantity}</span><span class="mx-1 sm:mx-2">•</span><span>${item.size.charAt(0).toUpperCase() + item.size.slice(1)}</span>
+                        ${item.toppings.length ? `<span class="mx-1 sm:mx-2">•</span><span>${item.toppings.join(', ')}</span>` : ''}
+                        <span class="mx-1 sm:mx-2">•</span><span>Sugar: ${item.sugar}</span>
+                        <span class="mx-1 sm:mx-2">•</span><span>Ice: ${item.ice}</span>
                         </div>
                     </div>
                 </div>
@@ -374,7 +673,10 @@ document.addEventListener('DOMContentLoaded', () => {
             cartItemsContainer.appendChild(itemElement);
         });
         subtotalEl.textContent = '₱' + subtotalValue.toFixed(2);
-        totalEl.textContent = '₱' + subtotalValue.toFixed(2);
+        const deliveryFee = 0; 
+        gebi('delivery-fee').textContent = '₱' + deliveryFee;
+        totalEl.textContent = '₱' + (subtotalValue + deliveryFee).toFixed(2);
+
         qsa('.remove-item').forEach(button => {
             button.addEventListener('click', function() {
                 cart.splice(parseInt(this.getAttribute('data-index')), 1);
@@ -383,7 +685,126 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-    updateCartUI();
+
+    async function sendToGoogleSheet(data, scriptUrl) { 
+        if (scriptUrl === ORIGINAL_PLACEHOLDER_URL) { 
+            console.warn("Google Sheet URL not configured (still using placeholder). Skipping submission.");
+            showToast("Sheet URL not set. Data not sent.");
+            return { status: "error", message: "Sheet URL not configured."}; 
+        }
+        try {
+            const response = await fetch(scriptUrl, {
+                method: 'POST',
+                mode: 'cors', 
+                cache: 'no-cache',
+                headers: { 'Content-Type': 'application/json', },
+                redirect: 'follow',
+                body: JSON.stringify(data),
+            });
+            let resultText = await response.text();
+            try {
+                const result = JSON.parse(resultText);
+                 if (result.status === "success") {
+                    console.log("Data sent to Google Sheet successfully:", result.message, "Order No:", result.orderNumber);
+                    return result; 
+                } else {
+                    console.error("Error reported by Google Sheet script:", result.message, result.details);
+                    showToast("Sheet submission error: " + (result.message || "Unknown error"));
+                    return result; 
+                }
+            } catch (e) {
+                console.log("Response from Google Sheet (not JSON):", resultText);
+                if (response.ok) { 
+                     console.log("Data likely sent to Google Sheet successfully (non-JSON response).");
+                     return { status: "success", message: "Data likely sent (non-JSON response)"};
+                } else {
+                     showToast("Error submitting to sheet (non-JSON response). Status: " + response.status);
+                     return { status: "error", message: "Non-JSON response, status: " + response.status };
+                }
+            }
+        } catch (error) {
+            console.error('Failed to send data to Google Sheet:', error);
+            showToast("Network error: Could not submit to sheet."); 
+            return { status: "network_error", message: error.message };
+        }
+    }
+    
+
+    adminLoginBtn.addEventListener('click', () => {
+        if (adminPasswordInput.value === ADMIN_PASSWORD) {
+            sessionStorage.setItem('isAdminLoggedIn', 'true'); 
+            window.location.hash = '#admin-panel';
+            showSection(adminPanelSection);
+            adminLoginError.textContent = '';
+            adminPasswordInput.value = '';
+            fetchAndDisplayAdminOrders();
+        } else {
+            adminLoginError.textContent = 'Invalid password.';
+            sessionStorage.removeItem('isAdminLoggedIn');
+        }
+    });
+
+    adminLogoutBtn.addEventListener('click', () => {
+        sessionStorage.removeItem('isAdminLoggedIn');
+        window.location.hash = ''; 
+        resetAppToAuth(); 
+    });
+    
+    refreshOrdersBtn.addEventListener('click', fetchAndDisplayAdminOrders);
+
+    async function fetchAndDisplayAdminOrders() {
+        adminOrdersTableBody.innerHTML = '<tr><td colspan="11" class="text-center py-4">Loading orders...</td></tr>';
+        if (GOOGLE_SHEET_SCRIPT_URL === ORIGINAL_PLACEHOLDER_URL) { 
+            adminOrdersTableBody.innerHTML = '<tr><td colspan="11" class="text-center py-4">Admin panel disabled: Google Sheet URL not configured.</td></tr>';
+            return;
+        }
+        try {
+            const response = await fetch(GOOGLE_SHEET_SCRIPT_URL); 
+            if (!response.ok) { 
+                let errorText = `HTTP error! status: ${response.status}`;
+                try { 
+                    const body = await response.text();
+                    errorText += ` - ${body}`;
+                } catch (e) { /* no-op */ }
+                throw new Error(errorText);
+            }
+            const result = await response.json();
+            if (result.status === "success" && result.orders) {
+                displayAdminOrders(result.orders);
+            } else {
+                adminOrdersTableBody.innerHTML = `<tr><td colspan="11" class="text-center py-4">Error loading orders: ${result.message || 'Unknown error'}</td></tr>`;
+                console.error("Error from Apps Script (fetching orders):", result.message, result.details);
+            }
+        } catch (error) {
+            adminOrdersTableBody.innerHTML = `<tr><td colspan="11" class="text-center py-4">Failed to fetch orders: ${error.message}</td></tr>`;
+            console.error('Failed to fetch admin orders:', error);
+        }
+    }
+
+    function displayAdminOrders(orders) { 
+        adminOrdersTableBody.innerHTML = '';
+        if (orders.length === 0) {
+            adminOrdersTableBody.innerHTML = '<tr><td colspan="11" class="text-center py-4">No orders found.</td></tr>';
+            return;
+        }
+        orders.forEach(order => { 
+            const row = adminOrdersTableBody.insertRow();
+            row.insertCell().textContent = order.orderno || 'N/A';
+            row.insertCell().textContent = order.servertimestamp || 'N/A';
+            row.insertCell().textContent = order.customername || 'N/A'; 
+            row.insertCell().textContent = order.customeremail || 'N/A';
+            row.insertCell().textContent = order.customercontactno || 'N/A';
+            row.insertCell().textContent = order.customeraddress || 'N/A';
+            const orderDetailCell = row.insertCell();
+            orderDetailCell.innerHTML = (order.orderdetail || 'N/A').replace(/;/g, '<br>');
+            row.insertCell().textContent = order.totalamount || 'N/A';
+            row.insertCell().textContent = order.paymentmethod || 'N/A';
+            row.insertCell().textContent = order.status || 'N/A';
+            row.insertCell().textContent = order.clienttimestamp || 'N/A';
+        });
+    }
+
+    updateCartUI(); 
 });
 </script>
 </body>
